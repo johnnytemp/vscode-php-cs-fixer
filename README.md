@@ -32,6 +32,7 @@ or right mouse context menu on explorer `php-cs-fixer: fix`
     "php-cs-fixer.executablePathWindows": "",   //eg: php-cs-fixer.bat
     "php-cs-fixer.onsave": false,
     "php-cs-fixer.rules": "@PSR2",
+    "php-cs-fixer.followIndentation": false,
     "php-cs-fixer.config": ".php_cs;.php_cs.dist",
     "php-cs-fixer.allowRisky": false,
     "php-cs-fixer.pathMode": "override",

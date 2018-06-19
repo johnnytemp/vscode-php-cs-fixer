@@ -61,6 +61,11 @@
                     "default": "@PSR2",
                     "description": "PHP CS Fixer level setting (@PSR1, @PSR2, @Symfony). Support json formatted value. @see: https://github.com/FriendsOfPHP/PHP-CS-Fixer"
                 },
+                "php-cs-fixer.followIndentation": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "follow the indentation type the current file is using"
+                },
                 "php-cs-fixer.config": {
                     "type": "string",
                     "default": ".php_cs;.php_cs.dist",

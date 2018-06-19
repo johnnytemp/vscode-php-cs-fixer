@@ -25,6 +25,7 @@ class PHPCSFixer {
 
     loadSettings() {
         let config = workspace.getConfiguration('php-cs-fixer');
+        this.followIndentation = config.get('followIndentation', false);
         this.onsave = config.get('onsave', false);
         this.autoFixByBracket = config.get('autoFixByBracket', true);
         this.autoFixBySemicolon = config.get('autoFixBySemicolon', false);
@@ -58,10 +59,18 @@ class PHPCSFixer {
         }
     }
 
+    getEditorIndent() {
+        let editorOptions = window.activeTextEditor.options;
+        return editorOptions.insertSpaces ? (" ".repeat(editorOptions.tabSize)) : "\t";
+    }
+
     getArgs(fileName) {
         let args = ['fix', '--using-cache=no', fileName];
         if (this.pharPath != null) {
             args.unshift(this.pharPath);
+        }
+        if (this.followIndentation) {
+            args.push('--default-indentation', this.getEditorIndent());
         }
         let useConfig = false;
         if (this.config.length > 0) {
